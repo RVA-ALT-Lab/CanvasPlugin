@@ -8,5 +8,5 @@
   $canvas_url = sprintf($url, $canvas_client_id, $redirect_uri);
 
 ?>
-
+<?php echo 'Here is a string'; ?>
 <a href="<?php echo $canvas_url; ?>">OAuth with Canvas</a>
