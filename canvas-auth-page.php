@@ -8,7 +8,7 @@
   $credentials = json_decode($credential_json_string, true);
   $redirect_uri = get_site_url() . '/wp-admin?page=canvas-auth';
   $canvas_url = sprintf($credentials['url'], $credentials['canvas_client_id'], $redirect_uri);
-  var_dump($canvas_url);
+  var_dump($credentials);
 
 ?>
 <?php echo 'Here is another test'; ?>
