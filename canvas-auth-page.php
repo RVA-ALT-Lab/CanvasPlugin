@@ -6,6 +6,7 @@
 <?php
   include dirname(__FILE__) . '/credentials.php';
   $canvas_url = sprintf($url, $canvas_client_id, $redirect_uri);
+  var_dump($canvas_url);
 
 ?>
 <?php echo 'Here is a string'; ?>
