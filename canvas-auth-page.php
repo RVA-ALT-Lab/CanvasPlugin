@@ -4,8 +4,10 @@
 
 
 <?php
-  include dirname(__FILE__) . '/credentials.php';
-  $canvas_url = sprintf($url, $canvas_client_id, $redirect_uri);
+  $credential_json_string = file_get_contents(dirname(__FILE__).'/credentials.json');
+  $credentials = json_decode($credential_json_string, true);
+  $redirect_uri = get_site_url() . '/wp-admin?page=canvas-auth';
+  $canvas_url = sprintf($credentials['url'], $credentials['canvas_client_id'], $redirect_uri);
   var_dump($canvas_url);
 
 ?>
