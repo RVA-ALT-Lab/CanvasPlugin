@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name:     CanvasPlugin
+ * Plugin Name:     Canvas Plugin
  * Plugin URI:      PLUGIN SITE HERE
- * Description:     PLUGIN DESCRIPTION HERE
- * Author:          YOUR NAME HERE
- * Author URI:      YOUR SITE HERE
+ * Description:     This is a bare bones integration between Canvas and WordPress
+ * Author:          Jeff Everhart
+ * Author URI:      https://jeffreyeverhart.com
  * Text Domain:     CanvasPlugin
  * Domain Path:     /languages
  * Version:         0.1.0
@@ -17,8 +17,8 @@
 
 function create_canvas_page($post_id) {
 
-  $canvas_url = 'https://yourdomain.instructure.com';
-  $canvas_api_token = 'YourAPIKEYHERE';
+  $canvas_url = 'https://virginiacommonwealth.instructure.com';
+  $canvas_api_token = '13092~yCVTnGJm1LloY6F7HaVEdMNGEtohRW0te4Ye8YWJ90ppgI2DWVKUuQ9gJnJT7bS4';
 
   $pages_url = '/api/v1/courses/13/pages';
 
@@ -52,7 +52,22 @@ function create_canvas_page($post_id) {
   }
 }
 
-add_action('save_post', 'create_canvas_page');
+// add_action('save_post', 'create_canvas_page');
+
+function create_canvas_auth_page() {
+  add_menu_page(
+    'Canvas Auth',
+    'Canvas Auth',
+    'manage_options',
+    'canvas-auth',
+    'render_canvas_page',
+    'dashicons-chart-pie'
+  );
+}
 
 
+add_action('admin_menu', 'create_canvas_auth_page');
 
+function render_canvas_page () {
+  include dirname(__FILE__) . '/canvas-auth-page.php';
+}
