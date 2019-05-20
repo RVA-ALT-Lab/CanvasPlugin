@@ -11,5 +11,5 @@
   var_dump($canvas_url);
 
 ?>
-<?php echo 'Here is a string'; ?>
+<?php echo 'Here is another test'; ?>
 <a href="<?php echo $canvas_url; ?>">OAuth with Canvas</a>
