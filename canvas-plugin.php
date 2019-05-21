@@ -65,9 +65,25 @@ function create_canvas_auth_page() {
   );
 }
 
+function create_canvas_successful_auth_page() {
+  add_submenu_page(
+    null,
+    'Canvas Auth Success',
+    'Canvas Auth Success',
+    'manage_options',
+    'canvas-auth-success',
+    'render_canvas_auth_success_page'
+  );
+}
+
 
 add_action('admin_menu', 'create_canvas_auth_page');
+add_action('admin_menu', 'create_canvas_successful_auth_page');
 
 function render_canvas_page () {
   include dirname(__FILE__) . '/canvas-auth-page.php';
+}
+
+function render_canvas_auth_success_page () {
+  include dirname(__FILE__) . '/canvas-auth-success.php';
 }
